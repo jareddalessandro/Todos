@@ -6,4 +6,4 @@ If you want to learn how to build this yourself you can check out the YouTube vi
 - [Learn to code a to-do list app in JavaScript - Part 2](https://www.youtube.com/watch?v=bGLZ2pwCaiI)
 
 ## License
-[MIT](LICENSE.md) © [Max Sandelin](https://instagram.com/themaxsandelin)
+[MIT](LICENSE.md) © [Max Sandelin]
