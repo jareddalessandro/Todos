@@ -233,7 +233,7 @@ ul.todo#completed:before {
   top: 30px;
   left: 50%;
 
-  margin: 0 0 0 -100px;
+  margin: 0 0 0 -150px;
 }
 
 ul.todo#todo:empty:after {
