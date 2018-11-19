@@ -225,15 +225,15 @@ ul.todo#completed {
 
 ul.todo#completed:before {
   content: '';
-  width: 150px;
+  width: 300px;
   height: 1px;
-  background: #d8e5e0;
+  background: #25b99a;
 
   position: absolute;
   top: 30px;
   left: 50%;
 
-  margin: 0 0 0 -75px;
+  margin: 0 0 0 -100px;
 }
 
 ul.todo#todo:empty:after {
@@ -242,7 +242,7 @@ ul.todo#todo:empty:after {
 }
 
 ul.todo#completed:empty:after {
-  content: 'You have yet to complete any tasks.';
+  content: 'No completed tasks';
 }
 
 ul.todo#todo:after,
