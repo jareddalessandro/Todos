@@ -22,6 +22,8 @@ document.getElementById('add').addEventListener('click', function () {
 document.getElementById('item').addEventListener('keydown', function (e) {
   var value = this.value;
   if ((e.code === 'Enter' || e.code === 'NumpadEnter') && value) {
+    // Capitilize the first character of the input
+    value = value.charAt(0).toUpperCase() + value.slice(1);
     addItem(value);
   }
 });
@@ -29,7 +31,6 @@ document.getElementById('item').addEventListener('keydown', function (e) {
 function addItem(value) {
   addItemToDOM(value);
   document.getElementById('item').value = '';
-
   data.todo.push(value);
   dataObjectUpdated();
 }
@@ -84,8 +85,8 @@ function completeItem() {
   dataObjectUpdated();
 
   // Check if the item should be added to the completed list or to re-added to the todo list
+  // Without this a refresh would be required to see the updates
   var target = (id === 'todo') ? document.getElementById('completed') : document.getElementById('todo');
-
   parent.removeChild(item);
   target.insertBefore(item, target.childNodes[0]);
 }
@@ -95,8 +96,7 @@ function addItemToDOM(text, completed) {
   var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
   var item = document.createElement('li');
-  // Capitilize the first character
-  item.innerText = text.charAt(0).toUpperCase() + text.slice(1);
+  item.innerText = text;
 
   var buttons = document.createElement('div');
   buttons.classList.add('buttons');
