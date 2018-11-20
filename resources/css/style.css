@@ -237,12 +237,12 @@ ul.todo#completed:before {
 }
 
 ul.todo#todo:empty:after {
-  content: 'You have nothing to-do!';
+  content: 'Add an activity to get started';
   margin: 15px 0 0 0;
 }
 
 ul.todo#completed:empty:after {
-  content: 'No completed tasks';
+  content: 'Completed tasks will be shown here';
 }
 
 ul.todo#todo:after,
