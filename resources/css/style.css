@@ -34,7 +34,7 @@ header input {
   height: 50px;
   float: left;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   text-indent: 18px;
   padding: 0 60px 0 0;
@@ -156,6 +156,7 @@ ul.todo li .buttons button {
   -moz-appearance: none;
 }
 
+/* Separator line between then the complete and the edit button */
 ul.todo li .buttons button.complete:before {
   content: '';
   width: 1px;
@@ -167,6 +168,7 @@ ul.todo li .buttons button.complete:before {
   left: 0;
 }
 
+/* Separator line between the edit and the delete button */
 ul.todo li .buttons button.edit:before {
   content: '';
   width: 1px;
@@ -237,15 +239,35 @@ ul.todo li .buttons button.complete svg .fill {
   fill: #25b99a;
 }
 
+/* When the user hovers over the add button */
+header button:hover svg .fill{
+  fill: #fdfffd;
+  transition: fill 0.2s ease;
+}
+
+/* When the user hovers over the add button */
+header button:hover {
+  background: #26aa47;
+  transition: background 0.2s ease;
+}
+
+/* When the user hovers over the input bar */
+header input:hover {
+  background: #26aa47;
+  transition: background 0.5s ease;
+}
+
 ul.todo#completed {
   position: relative;
   padding: 60px 0 0 0;
 }
 
+/* When an item is moved from the todo to the completed list */
 ul.todo#completed li {
   background: #d5ffdc;
 }
 
+/* The separator line between the two lists */
 ul.todo#completed:before {
   content: '';
   width: 300px;
@@ -259,11 +281,13 @@ ul.todo#completed:before {
   margin: 0 0 0 -150px;
 }
 
+/* Text displayed when todo list is empty */
 ul.todo#todo:empty:after {
   content: 'Add an activity to get started';
   margin: 15px 0 0 0;
 }
 
+/* Text displayed when completed list is empty */
 ul.todo#completed:empty:after {
   content: 'Completed tasks will be shown here';
 }
