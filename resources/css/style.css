@@ -96,7 +96,7 @@ header button svg {
 }
 
 header button svg .fill {
-  fill: #25b99a;
+  fill: #26aa47;
 }
 
 .container {
@@ -193,18 +193,18 @@ ul.todo li .buttons button svg {
 
 ul.todo li .buttons button.complete svg {
   border-radius: 11px;
-  border: 1.5px solid #25b99a;
+  border: 1.5px solid #26aa47;
 
   transition: background 0.2s ease;
 }
 
 ul.todo#completed li .buttons button.complete svg {
-  background: #25b99a;
+  background: #26aa47;
   border: 0px;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg {
-  background: rgba(37, 185, 154, 0.75);
+  background: #26aa47;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
@@ -236,7 +236,7 @@ ul.todo li .buttons button.remove:hover svg .fill {
 }
 
 ul.todo li .buttons button.complete svg .fill {
-  fill: #25b99a;
+  fill: #26aa47;
 }
 
 /* When the user hovers over the add button */
@@ -272,7 +272,7 @@ ul.todo#completed:before {
   content: '';
   width: 300px;
   height: 1px;
-  background: #25b99a;
+  background: #26aa47;
 
   position: absolute;
   top: 30px;
