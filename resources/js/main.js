@@ -20,6 +20,17 @@ document.getElementById('add').addEventListener('click', function () {
     }
 });
 
+// Dark
+document.getElementById('checkbox').addEventListener('change', function () {
+    if(this.checked){
+        document.body.style.backgroundColor = '#272829';
+
+    }
+    else {
+        document.body.style.backgroundColor = '#edf0f1';
+    }
+});
+
 document.getElementById('item').addEventListener('keydown', function (e) {
     var value = this.value;
     if ((e.code === 'Enter' || e.code === 'NumpadEnter') && value) {
