@@ -20,14 +20,64 @@ document.getElementById('add').addEventListener('click', function () {
     }
 });
 
-// Dark
+// Mode Toggle Switch
 document.getElementById('checkbox').addEventListener('change', function () {
+    var darkBackground = '#272829'; // dark grey
+    var darkHeader = '#742a6d'; // deep purple
+    var darkCompletedItem = '#ffadf1'; // light purple
+    var darkItem = '#4b4e51'; // less dark grey
+    var darkModeText = '#fff'; // white
+
+    var lightBackground = '#edf0f1'; // light grey
+    var lightHeader = '#26aa47'; // deep green
+    var lightCompletedItem = '#d5ffdc'; // light green
+    var lightItem = '#fff'; // white
+    var lightModeText = '#444'; // darkgrey
+
+    // Dark Mode
     if(this.checked){
-        document.body.style.backgroundColor = '#272829';
+        document.body.style.backgroundColor = darkBackground;
+        document.getElementById('header').style.backgroundColor = darkHeader;
+
+        // To alter every uncompleted item
+        var uncompleted = document.querySelector('#todo');
+        var todoList = uncompleted.querySelectorAll('li');
+        todoList.forEach(function(item) {
+            item.style.backgroundColor = darkItem;
+            item.style.color = darkModeText;
+        });
+
+        // To alter every completed item
+        var completed = document.querySelector('#completed');
+        var completedList = completed.querySelectorAll('li');
+        completedList.forEach(function(item) {
+            item.style.backgroundColor = darkCompletedItem;
+            item.style.color = darkModeText;
+        })
 
     }
+    // Light Mode
     else {
-        document.body.style.backgroundColor = '#edf0f1';
+        document.body.style.backgroundColor = lightBackground;
+        document.getElementById('header').style.backgroundColor = lightHeader;
+
+        // To alter every uncompleted item
+        var uncompleted = document.querySelector('#todo');
+        var todoList = uncompleted.querySelectorAll('li');
+        todoList.forEach(function (item) {
+            item.style.backgroundColor = lightItem;
+            item.style.color = lightModeText;
+        });
+
+        // To alter every completed item
+        var completed = document.querySelector('#completed');
+        var completedList = completed.querySelectorAll('li');
+        completedList.forEach(function (item) {
+            item.style.backgroundColor = darkCompletedItem;
+            item.style.color = lightModeText;
+        })
+
+
     }
 });
 
