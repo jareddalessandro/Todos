@@ -325,7 +325,7 @@ ul.todo#completed:after {
   text-align: center;
   width: 66%;
   height: 100%;
-  background: #85467e;
+  background: #39c646;
   display: block;
   font-size: 14px;
   line-height: 50px;
@@ -348,6 +348,14 @@ ul.todo#completed:after {
   padding: 8px;
   box-sizing: border-box;
 }
+.modeToggle input:checked ~ .indicator{
+  float: left;
+  background: #4b4e51;
+  height: 100%;
+  width: 34%;
+  padding: 8px;
+  box-sizing: border-box;
+}
 .modeToggle input:checked + span{
   margin-left: 0;
 }
@@ -361,7 +369,7 @@ ul.todo#completed:after {
   transition: stroke 1s 0.2s;
 }
 .modeToggle input:checked ~ .indicator .circ{
-  stroke: #742a6d;
+  stroke: #39c646;
   opacity: 1;
 }
 .tick{
@@ -372,7 +380,7 @@ ul.todo#completed:after {
   transition-delay: .5s;
 }
 .modeToggle input:checked ~ .indicator .tick{
-  stroke:#742a6d;
+  stroke:#39c646;
   opacity: 1;
   stroke-dashoffset: 0;
   transition-delay: 0.5s;
