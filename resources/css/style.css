@@ -401,6 +401,6 @@ ul.todo#completed:after {
   bottom: 0;
   right: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
