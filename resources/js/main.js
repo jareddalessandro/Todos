@@ -10,6 +10,7 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 var editSVG = '<? xml version = "1.0" ?> <svg height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns: sketch="http://www.bohemiancoding.com/sketch/ns" xmlns: xlink="http://www.w3.org/1999/xlink"><title /><defs /><g fill="" id="Group" transform="translate(-384.000000, -192.000000)"><path class = "fill" d="M385,203.950806 L389,208 L385,208 Z M392,196 L396,200 L389.978638,207.044189 L386,203 Z M394.084619,193.781497 C394.709458,193.156658 395.90929,193.343426 396.764518,194.198654 L397.538782,194.972918 C398.394011,195.828147 398.580778,197.027979 397.95594,197.652817 L396.720394,198.888363 L392.849074,195.017043 Z M394.084619,193.781497" id="Triangle 313" /></g></svg>'
 
 renderTodoList();
+updateColors();
 
 // User clicked on the add button
 // If there is any text inside the item field, add that text to the todo list
@@ -22,6 +23,13 @@ document.getElementById('add').addEventListener('click', function () {
 
 // Mode Toggle Switch
 document.getElementById('checkbox').addEventListener('change', function () {
+    var checkBox = document.getElementById('checkbox');
+    if (checkBox.checked) {
+        localStorage.setItem('modeSetting', 'dark')
+    }
+    else {
+        localStorage.setItem('modeSetting', 'light');
+    }
     updateColors();
 });
 
@@ -166,16 +174,14 @@ function updateColors() {
     var lightItem = '#fff'; // white
     var lightModeText = '#444'; // darkgrey
 
-    var checkBox = document.getElementById('checkbox');
-
     // Dark Mode
-    if(checkBox.checked){
+    if (localStorage.getItem('modeSetting') == 'dark') {
         document.body.style.backgroundColor = darkBackground;
 
         // To alter every uncompleted item
         var uncompleted = document.querySelector('#todo');
         var todoList = uncompleted.querySelectorAll('li');
-        todoList.forEach(function(item) {
+        todoList.forEach(function (item) {
             item.style.backgroundColor = darkItem;
             item.style.color = darkModeText;
         });
@@ -183,7 +189,7 @@ function updateColors() {
         // To alter every completed item
         var completed = document.querySelector('#completed');
         var completedList = completed.querySelectorAll('li');
-        completedList.forEach(function(item) {
+        completedList.forEach(function (item) {
             item.style.backgroundColor = darkCompletedItem;
             item.style.color = darkModeText;
         })
@@ -208,7 +214,6 @@ function updateColors() {
             item.style.backgroundColor = lightCompletedItem;
             item.style.color = lightModeText;
         })
-
 
     }
 }

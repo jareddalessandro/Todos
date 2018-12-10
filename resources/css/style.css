@@ -302,6 +302,7 @@ ul.todo#completed:after {
 }
 
 /* CSS FOR DARKMODE BUTTON */
+/* Deeper shades of green used for dark mode*/
 .modeToggle{
   background: #90dd9d;
   height: 50px;
