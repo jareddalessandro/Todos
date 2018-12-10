@@ -320,7 +320,7 @@ ul.todo#completed:after {
 }
 .modeToggle span{
   float: left;
-  color: #fff;
+  color: #000000;
   font-family: Arial;
   font-weight: bold;
   text-align: center;
@@ -338,6 +338,7 @@ ul.todo#completed:after {
   margin-left: -66%;
 }
 .modeToggle span ~ span{
+  color: #fff;
   margin-left: 0;
   background: none;
 }
