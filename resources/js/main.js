@@ -193,7 +193,10 @@ function updateColors() {
             item.style.backgroundColor = darkCompletedItem;
             item.style.color = darkModeText;
         })
-
+        // Make sure toggle button's checked status is maintained after refresh
+        // This makes the toggle button's checked value effectively persistent
+        var checkBox = document.getElementById('checkbox');
+        checkBox.checked = true;
     }
     // Light Mode
     else {
@@ -214,6 +217,9 @@ function updateColors() {
             item.style.backgroundColor = lightCompletedItem;
             item.style.color = lightModeText;
         })
-
+        // Make sure toggle button's checked status is maintained after refresh
+        // This makes the toggle button's checked value effectively persistent
+        var checkBox = document.getElementById('checkbox');
+        checkBox.checked = false;
     }
 }
