@@ -197,6 +197,10 @@ function updateColors() {
         // This makes the toggle button's checked value effectively persistent
         var checkBox = document.getElementById('checkbox');
         checkBox.checked = true;
+
+        // Make sure signature is colored correctly
+        var sig = document.querySelector('.signature');
+        sig.style.color = darkModeText;
     }
     // Light Mode
     else {
@@ -221,5 +225,9 @@ function updateColors() {
         // This makes the toggle button's checked value effectively persistent
         var checkBox = document.getElementById('checkbox');
         checkBox.checked = false;
+
+        // Make sure signature is colored correctly
+        var sig = document.querySelector('.signature');
+        sig.style.color = lightModeText;
     }
 }

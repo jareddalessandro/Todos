@@ -395,4 +395,12 @@ ul.todo#completed:after {
   transition: stroke 1s 0.2s;
 }
 
+.signature {
+  margin: 15px 15px 15px 15%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
 
