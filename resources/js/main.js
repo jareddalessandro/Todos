@@ -1,4 +1,4 @@
-
+// The persistent storage for the two lists
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
     todo: [],
     completed: []
@@ -9,17 +9,9 @@ var removeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xli
 var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect y="0" class="noFill" width="22" height="22"/><g><path class="fill" d="M9.7,14.4L9.7,14.4c-0.2,0-0.4-0.1-0.5-0.2l-2.7-2.7c-0.3-0.3-0.3-0.8,0-1.1s0.8-0.3,1.1,0l2.1,2.1l4.8-4.8c0.3-0.3,0.8-0.3,1.1,0s0.3,0.8,0,1.1l-5.3,5.3C10.1,14.3,9.9,14.4,9.7,14.4z"/></g></svg>';
 var editSVG = '<? xml version = "1.0" ?> <svg height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns: sketch="http://www.bohemiancoding.com/sketch/ns" xmlns: xlink="http://www.w3.org/1999/xlink"><title /><defs /><g fill="" id="Group" transform="translate(-384.000000, -192.000000)"><path class = "fill" d="M385,203.950806 L389,208 L385,208 Z M392,196 L396,200 L389.978638,207.044189 L386,203 Z M394.084619,193.781497 C394.709458,193.156658 395.90929,193.343426 396.764518,194.198654 L397.538782,194.972918 C398.394011,195.828147 398.580778,197.027979 397.95594,197.652817 L396.720394,198.888363 L392.849074,195.017043 Z M394.084619,193.781497" id="Triangle 313" /></g></svg>'
 
+// Make sure the data is populated and the correct color mode is selected
 renderTodoList();
 updateColors();
-
-// User clicked on the add button
-// If there is any text inside the item field, add that text to the todo list
-document.getElementById('add').addEventListener('click', function () {
-    var value = document.getElementById('item').value;
-    if (value) {
-        addItem(value);
-    }
-});
 
 // Mode Toggle Switch
 document.getElementById('checkbox').addEventListener('change', function () {
@@ -33,6 +25,18 @@ document.getElementById('checkbox').addEventListener('change', function () {
     updateColors();
 });
 
+// Event Handler for the add button
+// If there is any text inside the item field, add that text to the todo list
+document.getElementById('add').addEventListener('click', function () {
+    var value = document.getElementById('item').value;
+    if (value) {
+        // Capitilize the first character of the input
+        value = value.charAt(0).toUpperCase() + value.slice(1);
+        addItem(value);
+    }
+});
+
+// Event Handler to handle the user pressing enter instead of clicking the add button
 document.getElementById('item').addEventListener('keydown', function (e) {
     var value = this.value;
     if ((e.code === 'Enter' || e.code === 'NumpadEnter') && value) {
@@ -42,6 +46,7 @@ document.getElementById('item').addEventListener('keydown', function (e) {
     }
 });
 
+// Add the item to the html list, clear input bar, add it to local storage, update colors
 function addItem(value) {
     addItemToDOM(value);
     document.getElementById('item').value = '';
@@ -50,6 +55,7 @@ function addItem(value) {
     updateColors();
 }
 
+// Adds the items from localStorage to DOM, puts item in correct list
 function renderTodoList() {
     if (!data.todo.length && !data.completed.length) return;
 
@@ -64,11 +70,12 @@ function renderTodoList() {
     }
 }
 
+// Call to update the local storage with updated lists
 function dataObjectUpdated() {
     localStorage.setItem('todoList', JSON.stringify(data));
 }
 
-// Deletes the item but puts it's value into the input
+// Deletes the item from DOM list then remove it from localstorage, puts it's value into the input
 function editItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
@@ -87,6 +94,7 @@ function editItem() {
     parent.removeChild(item);
 }
 
+// Remove item from DOM list, then remove it from local storage
 function removeItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
@@ -103,6 +111,7 @@ function removeItem() {
     parent.removeChild(item);
 }
 
+// Moves item to correct DOM list, then updates localStorage lists, updates ui colors
 function completeItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
