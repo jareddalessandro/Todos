@@ -162,7 +162,8 @@ function addItemToDOM(text, completed) {
     list.insertBefore(item, list.childNodes[0]);
 }
 
-// Sets colors for dark mode and light mode
+// Sets body and list colors for dark mode and light mode
+// Animations and hover effects are in style.css
 function updateColors() {
     var darkBackground = '#272829'; // dark grey
     var darkCompletedItem = '#63b26b'; // deep green

@@ -38,7 +38,7 @@ header input {
   font-weight: 400;
   text-indent: 18px;
   padding: 0 60px 0 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 5px 25px 25px 5px;
   border: 0px;
   box-shadow: none;
@@ -116,10 +116,7 @@ ul.todo li {
   float: left;
   font-size: 14px;
   font-weight: 500;
-  color: #444;
   line-height: 22px;
-
-  background: #fff;
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
@@ -140,6 +137,8 @@ ul.todo li .buttons {
   top: 0;
   right: 0;
 }
+
+/********** BUTTONS STYLING START ***********/
 
 ul.todo li .buttons button {
   width: 50px;
@@ -257,14 +256,13 @@ header input:hover {
   transition: background 0.5s ease;
 }
 
+/********** BUTTONS STYLING END ***********/
+
+
+/* Keeps completed list below the separator line */
 ul.todo#completed {
   position: relative;
   padding: 60px 0 0 0;
-}
-
-/* When an item is moved from the todo to the completed list */
-ul.todo#completed li {
-  background: #d5ffdc;
 }
 
 /* The separator line between the two lists */
@@ -290,15 +288,6 @@ ul.todo#todo:empty:after {
 /* Text displayed when completed list is empty */
 ul.todo#completed:empty:after {
   content: 'Completed tasks will be shown here';
-}
-
-ul.todo#todo:after,
-ul.todo#completed:after {
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-size: 12px;
-  color: #aaa;
 }
 
 /* CSS FOR DARKMODE BUTTON */
