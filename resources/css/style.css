@@ -258,6 +258,15 @@ header input:hover {
 
 /********** BUTTONS STYLING END ***********/
 
+/* Modifies the placeholder text */
+ul.todo#todo:after,
+ul.todo#completed:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
 
 /* Keeps completed list below the separator line */
 ul.todo#completed {
