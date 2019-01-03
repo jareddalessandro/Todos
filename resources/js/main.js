@@ -168,6 +168,16 @@ function addItemToDOM(text, completed) {
     buttons.appendChild(complete);
     item.appendChild(buttons);
 
+    // If user double clicks, turn the list item purple
+    item.addEventListener('dblclick', function () {
+        if (this.style.backgroundColor !== '#9b26aa') {
+            this.style.backgroundColor = '#9b26aa';
+            this.style.color = '#fff';
+            console.log('In the if');
+
+        }
+    });
+
     list.insertBefore(item, list.childNodes[0]);
 }
 
