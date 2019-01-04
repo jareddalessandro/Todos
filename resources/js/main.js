@@ -179,10 +179,16 @@ function addItemToDOM(text, completed) {
     item.appendChild(buttons);
 
     // If user double clicks, turn the list item purple
+    item.isHighlighted = false;
     item.addEventListener('dblclick', function () {
-        if (this.style.backgroundColor !== highlightedColor) {
+        if (this.isHighlighted === false) {
+            this.isHighlighted = true;
             this.style.backgroundColor = highlightedColor;
             this.style.color = darkModeText;
+        }
+        else {
+            this.isHighlighted = false;
+            updateColors();
         }
     });
 
@@ -201,16 +207,22 @@ function updateColors() {
         var uncompleted = document.querySelector('#todo');
         var todoList = uncompleted.querySelectorAll('li');
         todoList.forEach(function (item) {
-            item.style.backgroundColor = darkItem;
-            item.style.color = darkModeText;
+            // If the item is highlighted leave it alone
+            if (item.isHighlighted == false) {
+                item.style.backgroundColor = darkItem;
+                item.style.color = darkModeText;
+            }
         });
 
         // To alter every completed item
         var completed = document.querySelector('#completed');
         var completedList = completed.querySelectorAll('li');
         completedList.forEach(function (item) {
-            item.style.backgroundColor = darkCompletedItem;
-            item.style.color = darkModeText;
+            // If the item is highlighted leave it alone
+            if (item.isHighlighted == false) {
+                item.style.backgroundColor = darkCompletedItem;
+                item.style.color = darkModeText;
+            }
         })
         // Make sure toggle button's checked status is maintained after refresh
         // This makes the toggle button's checked value effectively persistent
@@ -229,16 +241,22 @@ function updateColors() {
         var uncompleted = document.querySelector('#todo');
         var todoList = uncompleted.querySelectorAll('li');
         todoList.forEach(function (item) {
-            item.style.backgroundColor = lightItem;
-            item.style.color = lightModeText;
+            // If the item is highlighted leave it alone
+            if (item.isHighlighted == false) {
+                item.style.backgroundColor = lightItem;
+                item.style.color = lightModeText;
+            }
         });
 
         // To alter every completed item
         var completed = document.querySelector('#completed');
         var completedList = completed.querySelectorAll('li');
         completedList.forEach(function (item) {
-            item.style.backgroundColor = lightCompletedItem;
-            item.style.color = lightModeText;
+            // If the item is highlighted leave it alone
+            if (item.isHighlighted == false) {
+                item.style.backgroundColor = lightCompletedItem;
+                item.style.color = lightModeText;
+            }
         })
         // Make sure toggle button's checked status is maintained after refresh
         // This makes the toggle button's checked value effectively persistent
