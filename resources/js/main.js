@@ -3,7 +3,7 @@ var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem(
     todo: [],
     completed: []
 };
-
+//swaf
 // Color constants
 var darkBackground = '#272829'; // dark grey
 var darkCompletedItem = '#63b26b'; // deep green
