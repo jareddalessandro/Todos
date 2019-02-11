@@ -2,6 +2,7 @@
 
 body {
   background: #edf0f1;
+  background-image: linear-gradient(to bottom,  rgb(231, 109, 109), rgb(168, 29, 145), rgb(143, 53, 170), rgb(15, 6, 92), rgb(0,0,0));
   padding: 80px 0 0 0;
 }
 
@@ -108,6 +109,7 @@ ul.todo {
   float: left;
 }
 
+/* Todo list item style  */
 ul.todo li {
   width: 100%;
   min-height: 50px;
@@ -118,9 +120,15 @@ ul.todo li {
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  background: rgba(255, 255, 255, .3);
   margin: 0 0 10px 0;
   padding: 14px 100px 14px 14px;
   word-break: break-word;
+}
+
+/* Completed list item style */
+ul.todo#completed li {
+  background: #d5ffdc;
 }
 
 ul.todo li:last-of-type {
@@ -270,11 +278,6 @@ ul.todo#completed:after {
 ul.todo#completed {
   position: relative;
   padding: 60px 0 0 0;
-}
-
-/* Changes the completed list elements background color */
-ul.todo#completed li {
-  background: #d5ffdc;
 }
 
 /* The separator line between the two lists */
