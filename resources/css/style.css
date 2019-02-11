@@ -280,11 +280,9 @@ ul.todo#completed:before {
   width: 300px;
   height: 1px;
   background: #26aa47;
-
   position: absolute;
   top: 30px;
   left: 50%;
-
   margin: 0 0 0 -150px;
 }
 
