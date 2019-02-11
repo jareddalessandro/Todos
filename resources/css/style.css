@@ -256,7 +256,7 @@ header input:hover {
   transition: background 0.5s ease;
 }
 
-/********** BUTTONS STYLING END ***********/
+/************ BUTTONS STYLING END *************/
 
 /* Modifies the placeholder text */
 ul.todo#todo:after,
