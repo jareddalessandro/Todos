@@ -2,7 +2,7 @@
 
 body {
   background: #edf0f1;
-  background-image: linear-gradient(to bottom,  rgb(231, 109, 109), rgb(168, 29, 145), rgb(143, 53, 170), rgb(15, 6, 92), rgb(0,0,0));
+  background-image: linear-gradient(to bottom,  rgb(231, 109, 109), rgb(168, 29, 145), rgb(143, 53, 170), rgb(15, 6, 92));
   padding: 80px 0 0 0;
 }
 
@@ -22,7 +22,7 @@ header {
   top: 0;
   left: 0;
   z-index: 5;
-  background: #26aa47;
+  background: linear-gradient(to right, #FF355E,#FF9966,#FFFF66);
   box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -128,7 +128,8 @@ ul.todo li {
 
 /* Completed list item style */
 ul.todo#completed li {
-  background: #d5ffdc;
+  background: rgba(255, 255, 255, .2);
+  background: linear-gradient(to right, #356bff,#4df1f1,#9ffafa);
 }
 
 ul.todo li:last-of-type {
@@ -142,6 +143,45 @@ ul.todo li .buttons {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/* Modifies the placeholder text */
+ul.todo#todo:after,
+ul.todo#completed:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Keeps completed list below the separator line */
+ul.todo#completed {
+  position: relative;
+  padding: 60px 0 0 0;
+}
+
+/* The separator line between the two lists */
+ul.todo#completed:before {
+  content: '';
+  width: 300px;
+  height: 1px;
+  background: #a9ebff;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin: 0 0 0 -150px;
+}
+
+/* Text displayed when todo list is empty */
+ul.todo#todo:empty:after {
+  content: 'Add an activity to get started';
+  margin: 15px 0 0 0;
+}
+
+/* Text displayed when completed list is empty */
+ul.todo#completed:empty:after {
+  content: 'Completed tasks will be shown here';
 }
 
 /********** BUTTONS STYLING START ***********/
@@ -263,44 +303,5 @@ header input:hover {
 }
 
 /************ BUTTONS STYLING END *************/
-
-/* Modifies the placeholder text */
-ul.todo#todo:after,
-ul.todo#completed:after {
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-size: 14px;
-  color: #aaa;
-}
-
-/* Keeps completed list below the separator line */
-ul.todo#completed {
-  position: relative;
-  padding: 60px 0 0 0;
-}
-
-/* The separator line between the two lists */
-ul.todo#completed:before {
-  content: '';
-  width: 300px;
-  height: 1px;
-  background: #26aa47;
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  margin: 0 0 0 -150px;
-}
-
-/* Text displayed when todo list is empty */
-ul.todo#todo:empty:after {
-  content: 'Add an activity to get started';
-  margin: 15px 0 0 0;
-}
-
-/* Text displayed when completed list is empty */
-ul.todo#completed:empty:after {
-  content: 'Completed tasks will be shown here';
-}
 
 
