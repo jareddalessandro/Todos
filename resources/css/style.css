@@ -95,7 +95,7 @@ header button svg {
 }
 
 header button svg .fill {
-  fill: #26aa47;
+  fill: #9ffafa;
 }
 
 .container {
@@ -119,11 +119,9 @@ ul.todo li {
   line-height: 22px;
   border-radius: 5px;
   position: relative;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 2px;
-  border-image: linear-gradient(to top, #FF6EFF, rgb(255, 255, 255)) 1 round;
-  /*border-color: red;*/
-  /*border-image-slice: 1;*/
+  border-image: linear-gradient(to top, rgb(255, 112, 255), rgb(255, 255, 255)) 1 round; */
   background: rgba(255, 255, 255, .3);
   margin: 0 0 10px 0;
   padding: 14px 100px 14px 14px;
@@ -135,17 +133,14 @@ ul.todo#completed li {
   background: linear-gradient(to right, #356bff,#4df1f1,#9ffafa);
 }
 
-ul.todo li:last-of-type {
-  margin: 0;
+/* Affects all todo items including priority and completed*/
+ul.todo li:hover {
+  background: 100%;
+  transition: background 0.5s ease;
 }
 
-ul.todo li .buttons {
-  width: 150px;
-  height: 50px;
-
-  position: absolute;
-  top: 0;
-  right: 0;
+ul.todo li:last-of-type {
+  margin: 0;
 }
 
 /* Modifies the placeholder text */
@@ -189,6 +184,15 @@ ul.todo#completed:empty:after {
 
 /********** BUTTONS STYLING START ***********/
 
+ul.todo li .buttons {
+  width: 200px;
+  height: 50px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 ul.todo li .buttons button {
   width: 50px;
   height: 50px;
@@ -204,7 +208,19 @@ ul.todo li .buttons button {
   -moz-appearance: none;
 }
 
-/* Separator line between then the complete and the edit button */
+/* Separator line between then the important and the edit button */
+ul.todo li .buttons button.important:before {
+  content: '';
+  width: 1px;
+  height: 30px;
+  background: #b8bdbd;
+
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+/* Separator line between then the complete and the important button */
 ul.todo li .buttons button.complete:before {
   content: '';
   width: 1px;
@@ -264,11 +280,19 @@ ul.todo#completed li .buttons button.complete svg .fill {
 }
 
 ul.todo li .buttons button.edit svg .fill {
-  fill: #96bdb0;
+  fill: #c0cecb;
 }
 
 ul.todo li .buttons button.edit:hover svg .fill {
   fill: #c1e856;
+}
+
+ul.todo li .buttons button.important svg .fill {
+  fill: #c0cecb;
+}
+
+ul.todo li .buttons button.important:hover svg .fill {
+  fill: #4df1f1;
 }
 
 ul.todo li .buttons button svg .fill {
@@ -295,16 +319,14 @@ header button:hover svg .fill{
 
 /* When the user hovers over the add button */
 header button:hover {
-  background: #26aa47;
-  transition: background 0.2s ease;
+  background: rgb(255, 53, 94);
+  transition: background 0.5s ease;
 }
 
 /* When the user hovers over the input bar */
 header input:hover {
-  background: #26aa47;
+  background: 0;
   transition: background 0.5s ease;
 }
 
 /************ BUTTONS STYLING END *************/
-
-
