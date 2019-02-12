@@ -144,13 +144,31 @@ ul.todo li:last-of-type {
 }
 
 /* Modifies the placeholder text */
-ul.todo#todo:after,
-ul.todo#completed:after {
+
+ul.todo:after {
   width: 100%;
   display: block;
   text-align: center;
   font-size: 14px;
-  color: #aaa;
+  color: rgb(236, 232, 232);
+}
+
+/* Keeps todo list below the separator line */
+ul.todo#todo {
+  position: relative;
+  padding: 60px 0 0 0;
+}
+
+/* The separator line between priority and todo lists */
+ul.todo#todo:before {
+  content: '';
+  width: 300px;
+  height: 1px;
+  background: #a9ebff;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin: 0 0 0 -150px;
 }
 
 /* Keeps completed list below the separator line */
@@ -172,8 +190,13 @@ ul.todo#completed:before {
 }
 
 /* Text displayed when todo list is empty */
+ul.todo#priority:empty:after {
+  content: 'Prioritized tasks will be shown here';
+}
+
+/* Text displayed when todo list is empty */
 ul.todo#todo:empty:after {
-  content: 'Add an activity to get started';
+  content: 'Non-prioritized tasks will be shown here';
   margin: 15px 0 0 0;
 }
 

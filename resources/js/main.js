@@ -1,8 +1,8 @@
 // The persistent storage for the two lists
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
-    priority: [],
     todo: [],
-    completed: []
+    completed: [],
+    priority: []
 };
 
 // Remove and complete icons in SVG format
@@ -41,21 +41,30 @@ function addItem(value) {
     document.getElementById('item').value = '';
     data.todo.push(value);
     dataObjectUpdated();
-    updateColors();
 }
 
 // Adds the items from localStorage to DOM, puts item in correct list
 function renderTodoList() {
-    if (!data.todo.length && !data.completed.length) return;
+    if (!data.todo.length && !data.completed.length && !data.priority.length) return;
 
     for (var i = 0; i < data.todo.length; i++) {
         var value = data.todo[i];
-        addItemToDOM(value);
+        addItemToDOM(value, false, false);
     }
 
     for (var j = 0; j < data.completed.length; j++) {
         var value = data.completed[j];
-        addItemToDOM(value, true);
+        addItemToDOM(value, true, false);
+    }
+
+    // For users that used application before this list was added
+    if (!data.priority) {
+        data.priority = [];
+    }
+
+    for (var k = 0; k < data.priority.length; k++) {
+        var value = data.priority[k];
+        addItemToDOM(value, false, true);
     }
 }
 
@@ -75,8 +84,12 @@ function editItem() {
 
     if (id === 'todo') {
         data.todo.splice(data.todo.indexOf(value), 1);
-    } else {
+    }
+    else if (id === 'completed') {
         data.completed.splice(data.completed.indexOf(value), 1);
+    }
+    else if (id === 'priority') {
+        data.priority.splice(data.priority.indexOf(value), 1);
     }
     dataObjectUpdated();
 
@@ -92,12 +105,45 @@ function removeItem() {
 
     if (id === 'todo') {
         data.todo.splice(data.todo.indexOf(value), 1);
-    } else {
+    }
+    else if (id === 'completed') {
         data.completed.splice(data.completed.indexOf(value), 1);
     }
+    else if (id === 'priority') {
+        data.priority.splice(data.priority.indexOf(value), 1);
+    }
+
     dataObjectUpdated();
 
     parent.removeChild(item);
+}
+
+// Moves item to correct DOM list, then updates localStorage lists, updates ui colors
+function prioritizeItem() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+    var id = parent.id;
+    var value = item.innerText;
+
+    if (id === 'todo') {
+        data.todo.splice(data.todo.indexOf(value), 1);
+        data.priority.push(value);
+    }
+    else if (id === 'completed') {
+        data.completed.splice(data.completed.indexOf(value), 1);
+        data.priority.push(value);
+    }
+    else if (id === 'priority') {
+        data.priority.splice(data.priority.indexOf(value), 1);
+        data.todo.push(value);
+    }
+
+    dataObjectUpdated();
+    // Check if the item should be added to the priority list or to re-added to the todo list
+    // Without this a refresh would be required to see the updates
+    var target = (id === 'todo' || id === 'completed') ? document.getElementById('priority') : document.getElementById('todo');
+    parent.removeChild(item);
+    target.insertBefore(item, target.childNodes[0]);
 }
 
 // Moves item to correct DOM list, then updates localStorage lists, updates ui colors
@@ -110,23 +156,38 @@ function completeItem() {
     if (id === 'todo') {
         data.todo.splice(data.todo.indexOf(value), 1);
         data.completed.push(value);
-    } else {
+    }
+    else if (id === 'priority') {
+        data.priority.splice(data.priority.indexOf(value), 1);
+        data.completed.push(value);
+    }
+    else {
         data.completed.splice(data.completed.indexOf(value), 1);
         data.todo.push(value);
     }
+
+
     dataObjectUpdated();
 
     // Check if the item should be added to the completed list or to re-added to the todo list
     // Without this a refresh would be required to see the updates
-    var target = (id === 'todo') ? document.getElementById('completed') : document.getElementById('todo');
+    var target = (id === 'todo' || id === 'priority') ? document.getElementById('completed') : document.getElementById('todo');
     parent.removeChild(item);
     target.insertBefore(item, target.childNodes[0]);
-    updateColors();
 }
 
 // Adds a new item to the todo list
-function addItemToDOM(text, completed) {
-    var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
+function addItemToDOM(text, completed, priority) {
+
+    if (completed) {
+        var list = document.getElementById('completed');
+    }
+    else if (priority) {
+        var list = document.getElementById('priority');
+    }
+    else {
+        var list = document.getElementById('todo');
+    }
 
     var item = document.createElement('li');
     item.innerText = text;
@@ -134,34 +195,41 @@ function addItemToDOM(text, completed) {
     var buttons = document.createElement('div');
     buttons.classList.add('buttons');
 
+    // *** Delete Button ***
     var remove = document.createElement('button');
     remove.classList.add('remove');
     remove.innerHTML = removeSVG;
     // Add click event for removing the item
     remove.addEventListener('click', removeItem);
 
+    // *** Edit Button ***
     var edit = document.createElement('button');
     edit.classList.add('edit');
     edit.innerHTML = editSVG;
     // Add click event for editing the item
     edit.addEventListener('click', editItem);
 
+    // *** Prioritize Button ***
     var important = document.createElement('button');
     important.classList.add('important');
     important.innerHTML = prioritySVG;
     // Add click event for priotizing the item
-    //important.addEventListener('click', editItem);
+    important.addEventListener('click', prioritizeItem);
 
+    // *** Completed Button ***
     var complete = document.createElement('button');
     complete.classList.add('complete');
     complete.innerHTML = completeSVG;
     // Add click event for completing the item
     complete.addEventListener('click', completeItem);
 
+    // Add the buttons to the div
     buttons.appendChild(remove);
     buttons.appendChild(edit);
     buttons.appendChild(important);
     buttons.appendChild(complete);
+
+    // Add the div to the activity
     item.appendChild(buttons);
 
     list.insertBefore(item, list.childNodes[0]);
