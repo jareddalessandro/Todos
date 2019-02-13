@@ -134,13 +134,17 @@ ul.todo li {
 
 /* Completed list item style */
 ul.todo#completed li {
-  background: linear-gradient(to right, #356bff,#4df1f1,#9ffafa);
+  background: linear-gradient(to left, #356bff,#4df1f1,#9ffafa);
 }
 
 /* Affects all todo items including priority and completed*/
 ul.todo li:hover {
   background: 100%;
   transition: background 0.5s ease;
+  -webkit-box-shadow: 0px 0px 3px 5px #6ee2ff;
+  -moz-box-shadow: 0px 0px 3px 5px #6ee2ff;
+  box-shadow: 0px 0px 7px 5px #6ee2ff;
+  color: #fff;
 }
 
 ul.todo li:last-of-type {
@@ -290,12 +294,13 @@ ul.todo li .buttons button.complete svg {
 }
 
 ul.todo#completed li .buttons button.complete svg {
-  background: #000000;
+  background: #26aa47;
   border: 0px;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg {
   background: #26aa47;
+  border: 1.5px solid #26aa47;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
@@ -303,7 +308,7 @@ ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
 }
 
 ul.todo#completed li .buttons button.complete svg .fill {
-  fill: #26aa47;
+  fill: rgb(0, 0, 0);
 }
 
 ul.todo li .buttons button.edit svg .fill {
@@ -351,10 +356,10 @@ header button:hover svg .fill{
 /* When the user hovers over the add button */
 header button:hover {
   background: #26aa47;
-  transition: background 1s ease;
+  transition: background .25s ease;
   -webkit-box-shadow: 0px 0px 3px 5px #000000;
   -moz-box-shadow: 0px 0px 3px 5px #000000;
-  box-shadow: 0px 0px 3px 5px #000000;
+  box-shadow: 0px 0px 7px 7px #155e27;
 }
 
 /* When the user hovers over the input bar */
