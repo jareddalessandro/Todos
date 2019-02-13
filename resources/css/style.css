@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-  background: #edf0f1;
+  background-color: #edf0f1;
   background-image: linear-gradient(to bottom,  rgb(231, 109, 109), rgb(168, 29, 145), rgb(143, 53, 170), rgb(15, 6, 92));
   padding: 80px 0 0 0;
 }
@@ -78,9 +78,12 @@ header button {
   box-shadow: none;
   outline: none;
   cursor: pointer;
+  /*-webkit-box-shadow: 0px 0px 3px 5px #cf3dc3;
+  -moz-box-shadow: 0px 0px 3px 5px #cf3dc3;
+  box-shadow: 0px 0px 3px 5px #cf3dc3;*/
 
-  -webkit-appearance: none;
-  -moz-appearance: none;
+ /* -webkit-appearance: none;
+  -moz-appearance: none;*/
 }
 
 header button svg {
@@ -104,6 +107,7 @@ header button svg .fill {
   padding: 15px;
 }
 
+
 ul.todo {
   width: 100%;
   float: left;
@@ -124,7 +128,7 @@ ul.todo li {
   border-image: linear-gradient(to top, rgb(255, 112, 255), rgb(255, 255, 255)) 1 round; */
   background: rgba(255, 255, 255, .3);
   margin: 0 0 10px 0;
-  padding: 14px 100px 14px 14px;
+  padding: 14px 200px 14px 14px;
   word-break: break-word;
 }
 
@@ -280,7 +284,7 @@ ul.todo li .buttons button svg {
 
 ul.todo li .buttons button.complete svg {
   border-radius: 11px;
-  border: 1.5px solid #26aa47;
+  border: 1.5px solid #c0cecb;
 
   transition: background 0.2s ease;
 }
@@ -335,7 +339,7 @@ ul.todo li .buttons button.remove:hover svg .fill {
 }
 
 ul.todo li .buttons button.complete svg .fill {
-  fill: #26aa47;
+  fill: #c0cecb;
 }
 
 /* When the user hovers over the add button */
@@ -347,7 +351,10 @@ header button:hover svg .fill{
 /* When the user hovers over the add button */
 header button:hover {
   background: #26aa47;
-  transition: background 0.5s ease;
+  transition: background 1s ease;
+  -webkit-box-shadow: 0px 0px 3px 5px #000000;
+  -moz-box-shadow: 0px 0px 3px 5px #000000;
+  box-shadow: 0px 0px 3px 5px #000000;
 }
 
 /* When the user hovers over the input bar */
