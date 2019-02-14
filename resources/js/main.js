@@ -45,7 +45,7 @@ function addItem(value) {
 
 // Adds the items from localStorage to DOM, puts item in correct list
 function renderTodoList() {
-    if (!data.todo.length && !data.completed.length && !data.priority.length) return;
+    if (!data.todo.length && !data.completed.length) return;
 
     for (var i = 0; i < data.todo.length; i++) {
         var value = data.todo[i];
