@@ -42,7 +42,6 @@ header input {
   border: 0px;
   box-shadow: none;
   outline: none;
-
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -92,9 +91,6 @@ ul.todo li {
   line-height: 22px;
   border-radius: 5px;
   position: relative;
-  /* border-style: solid;
-  border-width: 2px;
-  border-image: linear-gradient(to top, rgb(255, 112, 255), rgb(255, 255, 255)) 1 round; */
   background: rgba(255, 255, 255, .3);
   margin: 0 0 10px 0;
   padding: 14px 200px 14px 14px;
@@ -103,7 +99,7 @@ ul.todo li {
 
 /* Completed list item style */
 ul.todo#completed li {
-  background: linear-gradient(to right, #356bff,#4df1f1,#9ffafa);
+  background: linear-gradient(to right, #4df1f1, #356bff,#115de9); 
 }
 
 /* Affects all todo items including priority and completed*/
@@ -190,7 +186,6 @@ ul.todo li .buttons button.important:before {
   width: 1px;
   height: 30px;
   background: #000000;
-
   position: absolute;
   top: 10px;
   left: 0;
@@ -214,7 +209,6 @@ ul.todo li .buttons button.edit:before {
   width: 1px;
   height: 30px;
   background: #000000;
-
   position: absolute;
   top: 10px;
   left: 0;
@@ -259,13 +253,13 @@ ul.todo li .buttons button svg .fill {
 }
  /* THE COMPLETED BUTTON */
 ul.todo#completed li .buttons button.complete svg {
-  border: 1.5px solid #26aa47;
-  fill: #26aa47;
+  border: 1.5px solid #66FF66;
+  fill: #66FF66;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg {
-  border: 1.5px solid #26aa47;
-  fill: #26aa47
+  border: 1.5px solid #66FF66;
+  fill: #66FF66;
 }
 
 ul.todo li .buttons button.complete svg {
@@ -311,49 +305,39 @@ header button:hover svg .fill{
 
 /* When the user hovers over the add button */
 header button:hover {
-  background: #26aa47;
+  background: #FF3399;
   transition: background .25s ease;
-  -webkit-box-shadow: 0px 0px 3px 5px #000000;
+  /* -webkit-box-shadow: 0px 0px 3px 5px #000000;
   -moz-box-shadow: 0px 0px 3px 5px #000000;
-  box-shadow: 0px 0px 7px 7px #155e27;
+  box-shadow: 0px 0px 7px 7px #155e27; */
 }
 
 header button {
   width: 50px;
   height: 50px;
-
   position:absolute;
   top:15px;
   right:15px;
   z-index:2;
-
   border-radius: 25px;
   background: rgb(0, 0, 0);
   border: 0px;
   box-shadow: none;
   outline: none;
   cursor: pointer;
-  /*-webkit-box-shadow: 0px 0px 3px 5px #cf3dc3;
-  -moz-box-shadow: 0px 0px 3px 5px #cf3dc3;
-  box-shadow: 0px 0px 3px 5px #cf3dc3;*/
-
- /* -webkit-appearance: none;
-  -moz-appearance: none;*/
 }
 
 header button svg {
   width: 16px;
   height: 16px;
-
   position: absolute;
   top: 50%;
   left: 50%;
-
   margin: -8px 0 0 -8px;
 }
 
 header button svg .fill {
-  fill: #26aa47;
+  fill: #FF3399;
 }
 
 /************ BUTTONS STYLING END *************/
