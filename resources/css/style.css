@@ -69,6 +69,7 @@ header input:hover {
   transition: background 0.5s ease;
 }
 
+
 .container {
   width: 100%;
   float: left;
@@ -102,7 +103,7 @@ ul.todo li {
 
 /* Completed list item style */
 ul.todo#completed li {
-  background: linear-gradient(to left, #356bff,#4df1f1,#9ffafa);
+  background: linear-gradient(to right, #356bff,#4df1f1,#9ffafa);
 }
 
 /* Affects all todo items including priority and completed*/
@@ -253,13 +254,6 @@ ul.todo li .buttons button svg {
   margin: -11px 0 0 -11px;
 }
 
-ul.todo li .buttons button.complete svg {
-  border-radius: 11px;
-  border: 1.5px solid #c0cecb;
-  fill: #c0cecb;
-  transition: background 0.2s ease;
-}
-
 ul.todo li .buttons button svg .fill {
   transition: fill 0.2s ease;
 }
@@ -273,6 +267,13 @@ ul.todo:not(#completed) li .buttons button.complete:hover svg {
   border: 1.5px solid #26aa47;
   fill: #26aa47
 }
+
+ul.todo li .buttons button.complete svg {
+  border-radius: 11px;
+  border: 1.5px solid #c0cecb;
+  fill: #c0cecb;
+  transition: background 0.2s ease;
+}
 /* THE EDIT BUTTON */
 ul.todo li .buttons button.edit svg .fill {
   fill: #c0cecb;
@@ -282,6 +283,10 @@ ul.todo li .buttons button.edit:hover svg .fill {
   fill: #c1e856;
 }
 /* THE IMPORTANT BUTTON */
+ul.todo li .buttons button.important svg .fill{
+  fill: #c0cecb;
+}
+
 ul.todo li .buttons button.important:hover svg .fill {
   fill: #4df1f1;
 }
@@ -296,6 +301,21 @@ ul.todo li .buttons button.remove svg .fill {
 
 ul.todo li .buttons button.remove:hover svg .fill {
   fill: #e85656;
+}
+
+/* When the user hovers over the add button */
+header button:hover svg .fill{
+  fill: #000000;
+  transition: fill 0.2s ease;
+}
+
+/* When the user hovers over the add button */
+header button:hover {
+  background: #26aa47;
+  transition: background .25s ease;
+  -webkit-box-shadow: 0px 0px 3px 5px #000000;
+  -moz-box-shadow: 0px 0px 3px 5px #000000;
+  box-shadow: 0px 0px 7px 7px #155e27;
 }
 
 header button {
@@ -335,20 +355,5 @@ header button svg {
 header button svg .fill {
   fill: #26aa47;
 }
-/* When the user hovers over the add button */
-header button:hover svg .fill{
-  fill: #000000;
-  transition: fill 0.2s ease;
-}
-
-/* When the user hovers over the add button */
-header button:hover {
-  background: #26aa47;
-  transition: background .25s ease;
-  -webkit-box-shadow: 0px 0px 3px 5px #000000;
-  -moz-box-shadow: 0px 0px 3px 5px #000000;
-  box-shadow: 0px 0px 7px 7px #155e27;
-}
-
 
 /************ BUTTONS STYLING END *************/
