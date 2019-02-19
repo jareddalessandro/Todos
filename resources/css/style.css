@@ -164,17 +164,20 @@ ul.todo#completed:before {
 
 /* Text displayed when todo list is empty */
 ul.todo#priority:empty:after {
+  color: #c2c2c2;
   content: 'Prioritized tasks will be shown here';
 }
 
 /* Text displayed when todo list is empty */
 ul.todo#todo:empty:after {
+  color: #c2c2c2;
   content: 'Non-prioritized tasks will be shown here';
   margin: 15px 0 0 0;
 }
 
 /* Text displayed when completed list is empty */
 ul.todo#completed:empty:after {
+  color: #c2c2c2;
   content: 'Completed tasks will be shown here';
 }
 
