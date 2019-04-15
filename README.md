@@ -11,7 +11,7 @@ This has a retro futuristic theme.
 ## ITEM PRIORTIZED
 ![image](https://user-images.githubusercontent.com/42550438/52968667-28c49580-336b-11e9-8def-0dd94ddb0f0b.png)
 
-# ITEM COMPLETED
+## ITEM COMPLETED
 ![image](https://user-images.githubusercontent.com/42550438/52968689-3712b180-336b-11e9-8656-082e004677df.png)
 
 ## License
