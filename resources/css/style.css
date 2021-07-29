@@ -99,7 +99,7 @@ ul.todo li {
 
 /* Completed list item style */
 ul.todo#completed li {
-  background: linear-gradient(to right, #4df1f1, #356bff,#115de9); 
+  background: linear-gradient(to right, #cdffdd,#049b36);
 }
 
 /* Affects all todo items including priority and completed*/
