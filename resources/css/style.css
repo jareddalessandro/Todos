@@ -102,6 +102,12 @@ ul.todo#completed li {
   background: linear-gradient(to right, #cdffdd,#049b36);
 }
 
+/* Priority list item style */
+ul.todo#priority li {
+  background: linear-gradient(to right, #75c7db,#1e9db6);
+}
+
+
 /* Affects all todo items including priority and completed*/
 ul.todo li:hover {
   background: 100%;
